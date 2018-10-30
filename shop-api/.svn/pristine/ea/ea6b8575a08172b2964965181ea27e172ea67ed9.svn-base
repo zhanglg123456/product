@@ -1,0 +1,47 @@
+package com.fh.api.list.vo;
+
+import java.io.Serializable;
+
+public class ProductVo implements Serializable {
+
+    private static final long serialVersionUID = 8171345589894724474L;
+    private Integer id;
+
+    private String productName;
+
+    private String mainImage;
+
+    private double price;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getMainImage() {
+        return mainImage;
+    }
+
+    public void setMainImage(String mainImage) {
+        this.mainImage = mainImage;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+}

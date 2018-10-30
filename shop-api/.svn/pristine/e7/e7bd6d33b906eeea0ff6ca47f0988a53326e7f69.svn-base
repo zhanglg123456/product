@@ -1,0 +1,4 @@
+#网易云短信配置文件
+sms.url=https://api.netease.im/sms/sendcode.action
+sms.secret=178673793aec
+sms.appkey=80a8664159a04576d2248ed4fc03ccec
