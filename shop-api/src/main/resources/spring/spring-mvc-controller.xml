@@ -16,11 +16,7 @@
 
     <mvc:annotation-driven/>
 
-	<!--
-        jsp视图解析器，对模型视图名称的解析，即在模型视图名称添加前后缀
-        如/view/welcome.jsp对应的视图名就是：welcome
-        这个类在视图解析器链中一定要定义在其他视图的后面，因为它始终会返回一个视图
-    -->
+	
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/view/"/>
         <property name="suffix" value=".jsp"/>

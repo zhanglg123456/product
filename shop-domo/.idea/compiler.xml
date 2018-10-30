@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="shop-domo" />
+        <module name="shop-protal1" />
+        <module name="shop2-api" />
+        <module name="shop2-protal" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="shop-domo" target="1.8" />
+      <module name="shop-protal1" target="1.8" />
+      <module name="shop2-api" target="1.8" />
+      <module name="shop2-protal" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

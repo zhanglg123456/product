@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/shop-domo.iml" filepath="$PROJECT_DIR$/shop-domo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../shop2-api/shop2-api.iml" filepath="$PROJECT_DIR$/../shop2-api/shop2-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../shop2-protal/shop2-protal.iml" filepath="$PROJECT_DIR$/../shop2-protal/shop2-protal.iml" />
+    </modules>
+  </component>
+</project>

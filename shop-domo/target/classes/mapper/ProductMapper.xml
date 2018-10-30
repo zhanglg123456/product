@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC  
+    "-//mybatis.org//DTD Mapper 3.0//EN"  
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+   
+<mapper namespace="com.fh.mapper.product.ProductMapper">
+
+    <update id="updateProduct" parameterType="product">
+        UPDATE t_product SET productName=#{productName},mainImage=#{mainImage},price=#{price},
+        stock=#{stock},updateTime=#{updateTime}
+        where id=#{id}
+    </update>
+
+    <select id="findProductById" parameterType="int" resultType="product" >
+        SELECT id,productName,mainImage,price,stock from t_product
+        where id = #{id}
+    </select>
+
+
+    <insert id="addproduct" parameterType="product">
+
+        INSERT INTO t_product (productName,mainImage,price,stock,createTime,updateTime)
+         VALUES (#{productName},#{mainImage},#{price},#{stock},#{createTime},#{updateTime})
+    </insert>
+
+    <delete id="deleteProductById" >
+
+        DELETE  FROM t_product WHERE id IN
+
+        <foreach collection="ids" open="(" close=")" separator="," item="id">
+
+            #{id}
+
+        </foreach>
+
+    </delete>
+
+    <select id="queryProductCount" parameterType="com.fh.vo.ProductVo" resultType="int">
+        SELECT COUNT(*) FROM  t_product
+        <include refid="proCondition"></include>
+
+
+
+    </select>
+    
+    <sql id="proCondition">
+        <where>
+            <if test="productName != null and productName != ''">
+
+                productName LIKE concat("%",#{productName},"%")
+                
+            </if>
+            
+            <if test="minPrice != null and minPrice !=''">
+
+              AND  price >= #{minPrice}
+
+            </if>
+
+            <if test="maxPrice != null and maxPrice !=''">
+
+             AND   price &lt;= #{maxPrice}
+
+            </if>
+
+            <if test="minStock != null">
+
+             AND   stock >= #{minStock}
+
+            </if>
+            <if test="maxStock != null">
+
+             AND   stock &lt;= #{maxStock}
+
+            </if>
+            
+            
+        </where>
+        
+        
+    </sql>
+
+<select id="findList" parameterType="com.fh.vo.ProductVo" resultType="product">
+    
+    SELECT * FROM  t_product 
+    <include refid="proCondition"></include>
+    ORDER BY id  DESC
+    limit #{start},#{length}
+
+
+    
+</select>
+
+	
+</mapper>

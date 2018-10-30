@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC  
+    "-//mybatis.org//DTD Mapper 3.0//EN"  
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+   
+<mapper namespace="com.fh.mapper.user.IUserMapper">
+
+	<update id="updateLoginStatus" parameterType="int">
+
+		UPDATE t_user SET  status = 2 WHERE userid = #{userid}
+	</update>
+
+	<update id="updateLoginErrorBuild" parameterType="int">
+
+		UPDATE t_user set loginErrorCount = 0 , loginErrorTime = NULL WHERE userid = #{userid}
+
+	</update>
+
+	<update id="updateLoginTimeAndCountInfo">
+		UPDATE t_user SET todayLoginCount =todayLoginCount + 1 ,lastLoginTime = #{date} WHERE userid= #{userid}
+
+	</update>
+
+	<update id="updateLastTimeAndCount">
+
+		UPDATE t_user SET todayLoginCount = 1 ,lastLoginTime = #{date} WHERE userid= #{userid}
+	</update>
+	<update id="updateLoginErrorCount">
+
+		UPDATE t_user SET loginErrorCount =loginErrorCount + 1 ,loginErrorTime = #{date} WHERE userid= #{userid}
+	</update>
+
+	<update id="updateLoginError" >
+
+		UPDATE t_user SET loginErrorCount = 1 ,loginErrorTime = #{date} WHERE userid= #{userid}
+	</update>
+
+<select id="loginUser" parameterType="string" resultType="user">
+	SELECT * FROM t_user WHERE username = #{username}
+</select>
+
+	
+</mapper>
